@@ -21,17 +21,47 @@ import todayImage from '~/assets/imgs/today.jpg'
 import commonStyles from '../../commonStyles'
 
 const initialState = {
-  closeTask: true,
+  doneAt: true,
   showModal: false,
   visibleTasks: [],
-  task: [{
+  tasks: [{
     id: Math.random(),
-    account: 'Comprar livro',
+    account: "Comprar Livro",
     estimatedAt: new Date(),
-    doneAt: new Date()
+    doneAt: new Date(),
   }, {
     id: Math.random(),
-    account: 'Ler livro',
+    account: "Ler Livro",
+    estimatedAt: new Date(),
+    doneAt: null
+  }, {
+    id: Math.random(),
+    account: "Ler Livro",
+    estimatedAt: new Date(),
+    doneAt: null
+  }, {
+    id: Math.random(),
+    account: "Ler Livro",
+    estimatedAt: new Date(),
+    doneAt: null
+  }, {
+    id: Math.random(),
+    account: "Ler Livro",
+    estimatedAt: new Date(),
+    doneAt: null
+  }, {
+    id: Math.random(),
+    account: "Ler Livro",
+    estimatedAt: new Date(),
+    doneAt: null
+  }, {
+    id: Math.random(),
+    account: "Ler Livro",
+    estimatedAt: new Date(),
+    doneAt: null
+  }, {
+    id: Math.random(),
+    account: "Ler Livro",
     estimatedAt: new Date(),
     doneAt: null
   }]
@@ -47,11 +77,11 @@ export default class TaskList extends Component {
       this.setState(state, this.filterTasks)
     }
     checkFilter = () => {
-        this.setState({ closeTask: !this.state.closeTask }, this.filterTasks)
+        this.setState({ doneAt: !this.state.doneAt }, this.filterTasks)
     }
     filterTasks = () => {
         let visibleTasks = null
-        if(this.state.closeTask){
+        if(this.state.doneAt){
             visibleTasks = [...this.state.task]
         } else {
             const pending = task => task.doneAt === null
@@ -61,11 +91,11 @@ export default class TaskList extends Component {
         this.setState({ visibleTasks })
         AsyncStorage.setItem('stateTask', JSON.stringify(this.state) )
     }
-    markTask = idTask => {
-        const tasks = [...this.state.task]
+    toggleTask = TaskId => {
+        const tasks = [...this.state.tasks]
         tasks.forEach(task => {
-            if(task.id === idTask ) {
-                task.closeTask = tarefa.closeTask ? null : new Date()
+            if(task.id === TaskId ) {
+                task.doneAt = task.doneAt ? null : new Date()
             }
         })
         this.setState({tasks}, this.filterTasks)
@@ -81,7 +111,7 @@ export default class TaskList extends Component {
             id: Math.random(),
             account: newTask.account,
             estimatedAt: newTask.estimatedAt,
-            closeTask: null
+            doneAt: null
         })
         this.setState({ task, showModal: false }, this.filterTasks)
     }
@@ -96,7 +126,7 @@ export default class TaskList extends Component {
                 <ImageBackground source={todayImage} style = {styles.background} >
                     <View style = {styles.iconBar} >
                         <TouchableOpacity onPress = {this.checkFilter}>
-                            <Icon name =  {this.state.closeTask ? 'eye' : 'eye-slash' }
+                            <Icon name =  {this.state.doneAt ? 'eye' : 'eye-slash' }
                               size = {20}
                               color = {commonStyles.colors.secondary} />
                         </TouchableOpacity>
@@ -107,35 +137,11 @@ export default class TaskList extends Component {
                     </View>
                 </ImageBackground>
                 <View style = {styles.taskList} >
-                <Task
-                    account="Comprar Livro"
-                    estimatedAt={new Date()}
-                    doneAt={new Date()}
-                    />
-                  <Task
-                    account="Comprar Livro"
-                    estimatedAt={new Date()}
-                    />
-                  <Task
-                    account="Comprar Livro"
-                    estimatedAt={new Date()}
-                    />
-                  <Task
-                    account="Comprar Livro"
-                    estimatedAt={new Date()}
-                    />
-                  <Task
-                    account="Comprar Livro"
-                    estimatedAt={new Date()}
-                    />
-                  <Task
-                    account="Comprar Livro"
-                    estimatedAt={new Date()}
-                    />
-                  <Task
-                    account="Comprar Livro"
-                    estimatedAt={new Date()}
-                    />
+                <FlatList data={this.state.tasks}
+                        keyExtractor={item => `${item.id}`}
+                        renderItem={({ item }) =>
+                            <Task {...item}
+                              toggleTask={this.toggleTask} />} />
                 </View>
                 <TouchableOpacity style = {styles.addButton}
                     activeOpacity = {0.7}

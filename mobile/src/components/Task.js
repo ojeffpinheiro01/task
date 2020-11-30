@@ -2,7 +2,7 @@ import React from 'react'
 import {
     View,
     Text,
-    TouchableWithoutFeedback ,
+    TouchableWithoutFeedback,
     TouchableOpacity,
     StyleSheet } from 'react-native'
 
@@ -17,7 +17,6 @@ import 'moment/locale/pt-br'
 export default props => {
     const doneOrNotStyle = props.doneAt != null ?
         { textDecorationLine: 'line-through' } : {}
-
     const date = props.doneAt? props.doneAt : props.estimatedAt
     const formattedDate = moment(date).locale('pt-br').format('ddd, D [de] MMMM')
 
@@ -29,7 +28,6 @@ export default props => {
             </TouchableOpacity>
         )
     }
-
     const getConteudoE = () => {
         return(
             <View style = {styles.e} >
@@ -38,7 +36,6 @@ export default props => {
             </View>
         )
     }
-
     return(
         <Swipeable
           onSwipeableLeftOpen = {() => props.onDelete && props.onDelete(props.id)}
@@ -46,7 +43,7 @@ export default props => {
           renderLeftActions = {getConteudoE}>
             <View style = {styles.container} >
                 <TouchableWithoutFeedback
-                    onPress ={() => props.markTask(props.id) }>
+                    onPress ={() => props.toggleTask(props.id) }>
                     <View style = {styles.checkContainer} >{getCheckView(props.doneAt)}</View>
                 </TouchableWithoutFeedback>
                 <View>
