@@ -21,7 +21,7 @@ import todayImage from '~/assets/imgs/today.jpg'
 import commonStyles from '../../commonStyles'
 
 const initialState = {
-  doneAt: true,
+  showDoneTasks: true,
   showModal: false,
   visibleTasks: [],
   tasks: [{
@@ -77,15 +77,15 @@ export default class TaskList extends Component {
       this.setState(state, this.filterTasks)
     }
     checkFilter = () => {
-        this.setState({ doneAt: !this.state.doneAt }, this.filterTasks)
+        this.setState({ showDoneTasks: !this.state.showDoneTasks }, this.filterTasks)
     }
     filterTasks = () => {
         let visibleTasks = null
-        if(this.state.doneAt){
-            visibleTasks = [...this.state.task]
+        if(this.state.showDoneTasks){
+            visibleTasks = [...this.state.tasks]
         } else {
             const pending = task => task.doneAt === null
-            visibleTasks = this.state.task.filter(pending)
+            visibleTasks = this.state.tasks.filter(pending)
         }
 
         this.setState({ visibleTasks })
@@ -106,7 +106,7 @@ export default class TaskList extends Component {
             return
         }
 
-        const task = [...this.state.task]
+        const task = [...this.state.tasks]
         task.push({
             id: Math.random(),
             account: newTask.account,
@@ -116,7 +116,7 @@ export default class TaskList extends Component {
         this.setState({ task, showModal: false }, this.filterTasks)
     }
     delTask = id => {
-        const task = this.state.task.filter(task => task.id !== id )
+        const task = this.state.tasks.filter(task => task.id !== id )
         this.setState({ task }, this.filterTasks)
     }
     render () {
@@ -126,7 +126,7 @@ export default class TaskList extends Component {
                 <ImageBackground source={todayImage} style = {styles.background} >
                     <View style = {styles.iconBar} >
                         <TouchableOpacity onPress = {this.checkFilter}>
-                            <Icon name =  {this.state.doneAt ? 'eye' : 'eye-slash' }
+                            <Icon name =  {this.state.showDoneTasks ? 'eye' : 'eye-slash' }
                               size = {20}
                               color = {commonStyles.colors.secondary} />
                         </TouchableOpacity>
@@ -137,7 +137,7 @@ export default class TaskList extends Component {
                     </View>
                 </ImageBackground>
                 <View style = {styles.taskList} >
-                <FlatList data={this.state.tasks}
+                <FlatList data={this.state.visibleTasks}
                         keyExtractor={item => `${item.id}`}
                         renderItem={({ item }) =>
                             <Task {...item}
