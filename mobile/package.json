@@ -10,14 +10,22 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-community/async-storage": "1.7.1",
+    "@react-native-community/datetimepicker": "2.1.0",
     "axios": "^0.21.0",
+    "moment": "2.24.0",
     "prop-types": "^15.7.2",
     "react": "16.13.1",
     "react-native": "0.63.4",
     "react-native-gesture-handler": "^1.9.0",
     "react-navigation": "^4.4.3",
     "reactotron-react-native": "^5.0.0",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.2.1",
+    "react-native-gravatar": "1.0.2",
+    "react-native-reanimated": "1.4.0",
+    "react-native-screens": "1.0.0-alpha.23",
+    "react-native-vector-icons": "6.6.0",
+    "react-navigation-drawer": "2.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
