@@ -27,11 +27,11 @@ You should have:
 
 ## Clone esse repositório :floppy_disk:
 ```bash
-$ git clone https://github.com/ojeffoinheiro/basic-react-native.git
+$ git clone https://github.com/ojeffoinheiro/task.git
 ```
 ## Entre na pasta :file_folder:
 ```bash
-$ cd basic-react-native
+$ cd task
 ```
 ## Instale as dependências :wrench:
 ```bash
