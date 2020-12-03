@@ -35,7 +35,7 @@ $ cd task
 ```
 ## Instale as dependências :wrench:
 ```bash
-yarn install
+npm install
 ```
 ## Run :iphone:
 Rodando a aplicação no iOS
