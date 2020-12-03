@@ -20,7 +20,7 @@ Este projeto foi desenvolvido com as seguintes tecnologias:
 ---
 
 # Como usar :fire:
-## Precondition :white_flag:
+## Precondition 📌
 You should have:
 - NodeJS
 - Package manager (NPM ou Yarn)
