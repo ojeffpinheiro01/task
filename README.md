@@ -1,5 +1,5 @@
 <h1 align="center">
-  Estrutura básica de um projeto react native
+  Task 📆
 </h1>
   
 <p align="center">
@@ -10,7 +10,7 @@
 </p>
 
 # Sobre o projeto :book:
-Este projeto visa a criação de um template que possa ser utilizado no momento de criação de projetos utilizando React Native, visto que o processo de instalação e configuração das libs no início de um projeto podem gerar certa complexidade e muitas vezes até erros que atrasam o processo, atrapalhando assim o fluxo de desenvolvimento.
+Este projeto visa a criação de uma aplicação To-Do, que permite uma lista de tarefas,
 
 # Tecnologias :computer:
 Este projeto foi desenvolvido com as seguintes tecnologias:
