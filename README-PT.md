@@ -2,7 +2,7 @@
   Task 📆
 </h1>
 
-## Selecione a linguagem: English | [Português](https://github.com/ojeffoinheiro/task/blob/master/README-pt.md)
+## Selecione a linguagem: [English](https://github.com/ojeffoinheiro/task/) | Português
   
 <p align="center">
   <a href="#sobre-o-projeto-book">Sobre o projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
