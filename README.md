@@ -33,7 +33,7 @@ You should have:
 - NodeJS
 - Package manager (NPM ou Yarn)
 
-## Clone esse repositório :floppy_disk:
+## Clone this repository :floppy_disk:
 ```bash
 $ git clone https://github.com/ojeffoinheiro/task.git
 ```
