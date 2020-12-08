@@ -1,6 +1,8 @@
 <h1 align="center">
   Task 📆
 </h1>
+
+## Selecione a linguagem: English | [Português](https://github.com/ojeffoinheiro/task/blob/master/README-pt.md)
   
 <p align="center">
   <a href="#sobre-o-projeto-book">Sobre o projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -8,8 +10,6 @@
   <a href="#como-usar-fire">Como usar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#como-contribuir-gear">Como contribuir</a>
 </p>
-
-## Selecione a linguagem: English | [Português](https://github.com/ojeffoinheiro/task/blob/master/README-pt.md)
 
 
 # Sobre o projeto :book:
