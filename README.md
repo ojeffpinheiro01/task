@@ -17,7 +17,6 @@ Este projeto foi desenvolvido com as seguintes tecnologias:
 - [React Native](https://reactnative.dev)
 - [item](https://react-icons.github.io/react-icons/)
 - [item](https://reactrouter.com/)
----
 
 # Como usar :fire:
 ## Precondition 📌
