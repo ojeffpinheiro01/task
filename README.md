@@ -2,8 +2,8 @@
   Task 📆
 </h1>
 
-## Select the language: English | [Português](https://github.com/ojeffoinheiro/task/blob/master/README-PT.md)
-  
+## [Leia esta página em português](https://github.com/ojeffoinheiro/task/blob/master/README-PT.md)
+
 <p align="center">
   <a href="#overview-book">Overview</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#technology-computer">Technology</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;  
