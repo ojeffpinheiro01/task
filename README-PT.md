@@ -2,8 +2,7 @@
   Task 📆
 </h1>
 
-## Selecione a linguagem: [English](https://github.com/ojeffoinheiro/task/) | Português
-  
+## [Read this page in English](https://github.com/ojeffoinheiro/task/)
 <p align="center">
   <a href="#sobre-o-projeto-book">Sobre o projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#tecnologias-computer">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;  
