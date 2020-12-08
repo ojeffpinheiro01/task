@@ -9,6 +9,9 @@
   <a href="#como-contribuir-gear">Como contribuir</a>
 </p>
 
+## Selecione a linguagem: English | [Português](https://github.com/ojeffoinheiro/task/blob/master/README-pt.md)
+
+
 # Sobre o projeto :book:
 Este projeto visa a criação de uma aplicação To-Do, que permite uma lista de tarefas,
 
