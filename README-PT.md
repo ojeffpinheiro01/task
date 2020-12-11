@@ -21,8 +21,8 @@ Este projeto foi desenvolvido com as seguintes tecnologias:
 - [item](https://reactrouter.com/)
 
 # Como usar :fire:
-## Precondition 📌
-You should have:
+## Condição prévia 📌
+Você precisa ter instalado:
 - NodeJS
 - Package manager (NPM ou Yarn)
 
