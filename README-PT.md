@@ -56,9 +56,9 @@ $ react-native run-android
 ---
 
 # Como contribuir :gear:
-- Fork this repository;
-- Create a branch with your feature: `git checkout -b my-feature`;
-- Commit your changes: `git commit -m 'feat: My new feature'`;
-- Push to your branch: `git push origin my-feature`.
+- Faça umFork desse repositório;
+- Crie um branch com a sua modificação: `git checkout -b my-feature`;
+- Faça um commit das suas mudanças: `git commit -m 'feat: My new feature'`;
+- Envia o branch: `git push origin my-feature`.
 ---
 
