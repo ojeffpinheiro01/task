@@ -17,6 +17,8 @@ import 'moment/locale/pt-br'
 
 import Task from '~/components/Task'
 
+import AddTask from '../AddTask'
+
 import todayImage from '~/assets/imgs/today.jpg'
 import commonStyles from '../../commonStyles'
 
@@ -106,14 +108,14 @@ export default class TaskList extends Component {
             return
         }
 
-        const task = [...this.state.tasks]
-        task.push({
+        const tasks = [...this.state.tasks]
+        tasks.push({
             id: Math.random(),
             account: newTask.account,
             estimatedAt: newTask.estimatedAt,
             doneAt: null
         })
-        this.setState({ task, showModal: false }, this.filterTasks)
+        this.setState({ tasks, showModal: false }, this.filterTasks)
     }
     delTask = id => {
         const task = this.state.tasks.filter(task => task.id !== id )
@@ -123,6 +125,9 @@ export default class TaskList extends Component {
         const today = moment().locale('pt-br').format('ddd, D [de] MMMM')
         return (
             <View style = {styles.container} >
+                <AddTask isVisible={this.state.showModal}
+                  onCancel={() => this.setState({ showModal: false }) }
+                  onSave ={this.addTask} />
                 <ImageBackground source={todayImage} style = {styles.background} >
                     <View style = {styles.iconBar} >
                         <TouchableOpacity onPress = {this.checkFilter}>
@@ -196,7 +201,7 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
         borderRadius: 25,
-        backgroundColor: commonStyles.colors.hoje,
+        backgroundColor: commonStyles.colors.today,
         justifyContent: 'center',
         alignItems: 'center'
     }

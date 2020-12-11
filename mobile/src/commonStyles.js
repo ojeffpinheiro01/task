@@ -3,7 +3,7 @@ export default {
   colors:{
       secondary: '#FFF',
       mainText: '#222',
-      subtitulo: '#555',
-      hoje: '#B13B44',
+      subText: '#555',
+      today: '#B13B44',
   }
 }
