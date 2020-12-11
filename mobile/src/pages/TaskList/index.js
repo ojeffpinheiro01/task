@@ -118,8 +118,8 @@ export default class TaskList extends Component {
         this.setState({ tasks, showModal: false }, this.filterTasks)
     }
     delTask = id => {
-        const task = this.state.tasks.filter(task => task.id !== id )
-        this.setState({ task }, this.filterTasks)
+        const tasks = this.state.tasks.filter(task => task.id !== id )
+        this.setState({ tasks }, this.filterTasks)
     }
     render () {
         const today = moment().locale('pt-br').format('ddd, D [de] MMMM')
@@ -146,7 +146,8 @@ export default class TaskList extends Component {
                         keyExtractor={item => `${item.id}`}
                         renderItem={({ item }) =>
                             <Task {...item}
-                              toggleTask={this.toggleTask} />} />
+                              toggleTask={this.toggleTask}
+                              onDelete = {this.delTask} />} />
                 </View>
                 <TouchableOpacity style = {styles.addButton}
                     activeOpacity = {0.7}
