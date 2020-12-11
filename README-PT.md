@@ -16,15 +16,9 @@ Este projeto visa a criação de uma aplicação To-Do, que permite uma lista de
 
 # Tecnologias :computer:
 Este projeto foi desenvolvido com as seguintes tecnologias:
-- [React](https://pt-br.reactjs.org/docs/getting-started.html)
-- [React Native](https://reactnative.dev/docs/getting-started)
-- [NodeJS](https://nodejs.org/en/)
-- [React Navigation](https://reactnavigation.org/docs/getting-started)
-- [React Native Async Storage](https://reactnative.dev/docs/asyncstorage)
-- [React Native DateTimePicker](https://github.com/react-native-datetimepicker/datetimepicker)
-- [Axios](https://www.npmjs.com/package/axios)
-- [Moment.js](https://momentjs.com)
-- [React Native Vector Icons](https://www.npmjs.com/package/react-native-vector-icons)
+- [React Native](https://reactnative.dev)
+- [item](https://react-icons.github.io/react-icons/)
+- [item](https://reactrouter.com/)
 
 # Como usar :fire:
 ## Precondition 📌
@@ -56,9 +50,9 @@ $ react-native run-android
 ---
 
 # Como contribuir :gear:
-- Faça umFork desse repositório;
-- Crie um branch com a sua modificação: `git checkout -b my-feature`;
-- Faça um commit das suas mudanças: `git commit -m 'feat: My new feature'`;
-- Envia o branch: `git push origin my-feature`.
+- Faça um fork desse repositório;
+- Crie uma branch com a sua feature: git checkout -b minha-feature;
+- Faça commit das suas alterações: git commit -m 'feat: Minha nova feature';
+- Faça push para a sua branch: git push origin minha-feature;
 ---
 
