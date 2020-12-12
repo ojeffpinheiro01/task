@@ -26,47 +26,7 @@ const initialState = {
   showDoneTasks: true,
   showModal: false,
   visibleTasks: [],
-  tasks: [{
-    id: Math.random(),
-    account: "Comprar Livro",
-    estimatedAt: new Date(),
-    doneAt: new Date(),
-  }, {
-    id: Math.random(),
-    account: "Ler Livro",
-    estimatedAt: new Date(),
-    doneAt: null
-  }, {
-    id: Math.random(),
-    account: "Ler Livro",
-    estimatedAt: new Date(),
-    doneAt: null
-  }, {
-    id: Math.random(),
-    account: "Ler Livro",
-    estimatedAt: new Date(),
-    doneAt: null
-  }, {
-    id: Math.random(),
-    account: "Ler Livro",
-    estimatedAt: new Date(),
-    doneAt: null
-  }, {
-    id: Math.random(),
-    account: "Ler Livro",
-    estimatedAt: new Date(),
-    doneAt: null
-  }, {
-    id: Math.random(),
-    account: "Ler Livro",
-    estimatedAt: new Date(),
-    doneAt: null
-  }, {
-    id: Math.random(),
-    account: "Ler Livro",
-    estimatedAt: new Date(),
-    doneAt: null
-  }]
+  tasks: []
 }
 
 export default class TaskList extends Component {

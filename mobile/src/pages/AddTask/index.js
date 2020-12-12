@@ -4,14 +4,12 @@ import {
     View,
     Text,
     TextInput,
-    DatePickerIOS,
     StyleSheet,
     TouchableWithoutFeedback,
     TouchableOpacity,
-    Alert,
-    DatePickerAndroid,
     Platform
 } from 'react-native'
+import DateTimePicker from '@react-native-community/datetimepicker'
 import moment from 'moment'
 import commonStyles from '~/commonStyles'
 
@@ -41,11 +39,32 @@ export default class AddTask extends Component {
       this.props.onSave && this.props.onSave(newTask)
       this.setState({ initialState })
     }
+
+    getDatePicker = () => {
+      let datePicker = <DateTimePicker value = {this.state.date}
+        onChange={(_, date) => this.setState({ date, showDatePicker: false })}
+        mode='date'/>
+
+        const dateString = moment(this.state.date).format('ddd, D [de] MMMM')
+
+      if(Platform.OS === 'android'){
+        datePicker = (
+          <View>
+            <TouchableOpacity onPress={() => this.setState({ showDatePicker: true}) } >
+              <Text style={styles.date}>{dateString}</Text>
+            </TouchableOpacity>
+            {this.state.showDatePicker && datePicker }
+          </View>
+        )
+      }
+
+      return datePicker
+    }
     handleDateAndroidChanged = () => {
-        DatePickerAndroid.open({
+      DateTimePicker.open({
             date: this.state.date
         }).then(e => {
-            if (e.action !== DatePickerAndroid.dismissedAction) {
+            if (e.action !== DateTimePicker.dismissedAction) {
                 const momentDate = moment(this.state.date)
                 momentDate.date(e.day)
                 momentDate.month(e.month)
@@ -82,7 +101,7 @@ export default class AddTask extends Component {
                     <TextInput placeholder="Descrição..." style={styles.input}
                         onChangeText={desc => this.setState({ desc })}
                         value={this.state.desc} />
-                    {datePicker}
+                    {this.getDatePicker()}
                     <View style={{
                         flexDirection: 'row',
                         justifyContent: 'flex-end'
