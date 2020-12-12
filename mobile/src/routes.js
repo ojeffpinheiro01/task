@@ -1,9 +1,21 @@
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
-import Main from '~/pages/Main';
-import TaskList from '~/pages/TaskList';
 import Auth from '~/pages/Auth';
+import TaskList from '~/pages/TaskList';
 
-const Routes = createAppContainer(createSwitchNavigator({ Auth }));
+const mainRoutes = {
+  Auth: {
+      name: 'Auth',
+      screen: Auth
+  },
+  Home: {
+      name: 'Home',
+      screen: TaskList
+  }
+}
 
-export default Routes;
+const mainNavigator = createSwitchNavigator(mainRoutes, {
+  initialRouteName: 'Home'
+})
+
+export default createAppContainer(mainNavigator)
