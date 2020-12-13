@@ -49,10 +49,6 @@ This project was developed with the following technologies:
 - [passport-jwt](https://www.npmjs.com/package/jwt-simple)
 - [nodemon](https://nodemon.io)
 </details>
----
-
-This project was developed with the following technologies:
-
 
 # How to use :fire:
 ## Precondition 📌
