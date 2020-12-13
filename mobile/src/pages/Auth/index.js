@@ -36,11 +36,10 @@ export default class Auth extends Component {
 
         axios.defaults.headers.common['Authorization']
             = `bearer ${res.data.token}`
-        AsyncStorage.setItem('userData', JSON.stringify(res.data))
+        // AsyncStorage.setItem('userData', JSON.stringify(res.data))
         this.props.navigation.navigate('Home', res.data)
     } catch (err) {
-        Alert.alert('Erro', 'Falha no Login!')
-        // showError(err)
+      showError(err)
     }
   }
   signup = async () => {
@@ -66,6 +65,17 @@ export default class Auth extends Component {
   }
 
   render(){
+    const validations = []
+    validations.push(this.state.email && this.state.email.includes('@'))
+    validations.push(this.state.pass && this.state.pass.length >= 6 )
+
+    if(this.state.stageNew){
+      validations.push(this.state.name && this.state.name.trim().length >= 2)
+      validations.push(this.state.pass === this.state.confirmPassword)
+    }
+
+    const validForm = validations.reduce((t, a) => t && a)
+
     return(
       <ImageBackground source={log} style={styles.background} >
         <Text style={styles.title} >Tasks</Text>
@@ -108,8 +118,9 @@ export default class Auth extends Component {
                 secureTextEntry={true}
               />
             }
-            <TouchableOpacity onPress={this.signinOrSignup}>
-              <View style={styles.button} >
+            <TouchableOpacity onPress={this.signinOrSignup}
+              disabled={!validForm}>
+              <View style={[styles.button, validForm ? {} : { backgroundColor: '#AAA' } ]} >
                 <Text style={styles.buttonText} >
                   {this.state.stageNew ? 'REGISTRAR' : 'ENTRAR' }
                 </Text>
