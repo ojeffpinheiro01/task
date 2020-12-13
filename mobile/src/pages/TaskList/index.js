@@ -12,11 +12,12 @@ import {
 import AsyncStorage from "@react-native-community/async-storage"
 import Icon from 'react-native-vector-icons/FontAwesome'
 
+import axios from 'axios'
 import moment from 'moment'
 import 'moment/locale/pt-br'
 
+import { server, showError } from '~/common'
 import Task from '~/components/Task'
-
 import AddTask from '../AddTask'
 
 import todayImage from '~/assets/imgs/today.jpg'
@@ -35,9 +36,23 @@ export default class TaskList extends Component {
     }
     componentDidMount = async () => {
       const stateString = await AsyncStorage.getItem('stateTask')
-      const state = JSON.parse(stateString) || initialState
-      this.setState(state, this.filterTasks)
+      const savedState = JSON.parse(stateString) || initialState
+      this.setState({
+        showDoneTasks: savedState.showDoneTasks
+      }, this.filterTasks)
+      this.loadTasks()
     }
+
+    loadTasks = async () => {
+      try {
+        const maxDate = moment().format('YYYY-MM-DD 23:59:59')
+        const res = await axios.get(`${server}/tasks?date=${maxDate}`)
+        this.setState({ tasks: res.data}, this.filterTasks)
+      } catch (e) {
+        showError(e)
+      }
+    }
+
     checkFilter = () => {
         this.setState({ showDoneTasks: !this.state.showDoneTasks }, this.filterTasks)
     }
@@ -51,7 +66,9 @@ export default class TaskList extends Component {
         }
 
         this.setState({ visibleTasks })
-        AsyncStorage.setItem('stateTask', JSON.stringify(this.state) )
+        AsyncStorage.setItem('stateTask', JSON.stringify({
+          showDoneTasks: this.state.showDoneTasks
+        }) )
     }
     toggleTask = TaskId => {
         const tasks = [...this.state.tasks]
