@@ -17,6 +17,10 @@ This project aims to create a To-Do application, which allows a list of tasks,
 
 # Technology :computer:
 This project was developed with the following technologies:
+
+<details>
+  <summary>Frontend Mobile</summary>
+
 - [React](https://pt-br.reactjs.org/docs/getting-started.html)
 - [React Native](https://reactnative.dev/docs/getting-started)
 - [NodeJS](https://nodejs.org/en/)
@@ -26,6 +30,29 @@ This project was developed with the following technologies:
 - [Axios](https://www.npmjs.com/package/axios)
 - [Moment.js](https://momentjs.com)
 - [React Native Vector Icons](https://www.npmjs.com/package/react-native-vector-icons)
+</details>
+
+<details>
+  <summary>Backend</summary>
+
+- [NodeJS](https://nodejs.org/)
+- [Bcrypt-nodejs](https://www.npmjs.com/package/bcrypt-nodejs)
+- [Body Parser](https://www.npmjs.com/package/body-parser)
+- [Consign](https://www.npmjs.com/package/consign)
+- [Postgres](https://www.postgresql.org)
+- [Cors](https://www.npmjs.com/package/cors)
+- [Express](https://expressjs.com/pt-br/)
+- [jwt-simple](https://www.npmjs.com/package/jwt-simple)
+- [Knex](http://knexjs.org)
+- [moment](https://momentjs.com)
+- [passport](http://www.passportjs.org/docs/)
+- [passport-jwt](https://www.npmjs.com/package/jwt-simple)
+- [nodemon](https://nodemon.io)
+</details>
+---
+
+This project was developed with the following technologies:
+
 
 # How to use :fire:
 ## Precondition 📌
