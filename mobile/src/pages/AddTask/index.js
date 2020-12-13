@@ -32,7 +32,7 @@ export default class AddTask extends Component {
     }
     save = () => {
       const newTask = {
-        account: this.state.desc,
+        desc: this.state.desc,
         date: this.state.date
       }
 

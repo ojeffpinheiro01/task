@@ -70,33 +70,39 @@ export default class TaskList extends Component {
           showDoneTasks: this.state.showDoneTasks
         }) )
     }
-    toggleTask = TaskId => {
-        const tasks = [...this.state.tasks]
-        tasks.forEach(task => {
-            if(task.id === TaskId ) {
-                task.doneAt = task.doneAt ? null : new Date()
-            }
-        })
-        this.setState({tasks}, this.filterTasks)
+    toggleTask = async taskId => {
+      try {
+        await axios.put(`${server}/tasks/${taskId}/toggle/`)
+        this.loadTasks()
+      } catch (e) {
+        showError(e)
+      }
     }
-    addTask = newTask => {
-        if(!newTask.account || !newTask.account.trim()){
+    addTask = async newTask => {
+        if(!newTask.desc || !newTask.desc.trim()){
             Alert.alert('DADOS INVÁLIDOS', 'Descrição não informada')
             return
         }
 
-        const tasks = [...this.state.tasks]
-        tasks.push({
-            id: Math.random(),
-            account: newTask.account,
-            estimatedAt: newTask.estimatedAt,
-            doneAt: null
-        })
-        this.setState({ tasks, showModal: false }, this.filterTasks)
+        try {
+          await axios.post(`${server}/tasks`, {
+            desc: newTask.desc,
+            estimateAt: newTask.date
+          })
+          this.setState({ showModal: false }, this.loadTasks)
+        } catch (e) {
+          showError(e)
+        }
+
+
     }
-    delTask = id => {
-        const tasks = this.state.tasks.filter(task => task.id !== id )
-        this.setState({ tasks }, this.filterTasks)
+    delTask = async taskId => {
+      try {
+        await axios.delete(`${server}/tasks/${taskId}`)
+        this.loadTasks()
+      } catch (e) {
+        showError(e)
+      }
     }
     render () {
         const today = moment().locale('pt-br').format('ddd, D [de] MMMM')
