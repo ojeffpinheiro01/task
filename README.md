@@ -66,9 +66,26 @@ $ cd task
 ```
 ## Install the dependencies
 ```bash
-npm i
+cd backend && yarn install
+cd mobile && yarn install
 ```
+## Running the Server 🌐
+Enter on folder
+```bash
+$ cd backend
+```
+
+Run the server
+```bash
+$ yarn start
+```
+
 ## Run :iphone:
+Enter on folder
+```bash
+$ cd mobile
+```
+
 Run the application (iOS)
 ```bash
 $ react-native run-ios --simulator="iPhone XS Max"
