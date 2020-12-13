@@ -16,9 +16,39 @@ Este projeto visa a criação de uma aplicação To-Do, que permite uma lista de
 
 # Tecnologias :computer:
 Este projeto foi desenvolvido com as seguintes tecnologias:
-- [React Native](https://reactnative.dev)
-- [item](https://react-icons.github.io/react-icons/)
-- [item](https://reactrouter.com/)
+
+<details>
+  <summary>Frontend Mobile</summary>
+
+- [React](https://pt-br.reactjs.org/docs/getting-started.html)
+- [React Native](https://reactnative.dev/docs/getting-started)
+- [NodeJS](https://nodejs.org/en/)
+- [React Navigation](https://reactnavigation.org/docs/getting-started)
+- [React Native Async Storage](https://reactnative.dev/docs/asyncstorage)
+- [React Native DateTimePicker](https://github.com/react-native-datetimepicker/datetimepicker)
+- [Axios](https://www.npmjs.com/package/axios)
+- [Moment.js](https://momentjs.com)
+- [React Native Vector Icons](https://www.npmjs.com/package/react-native-vector-icons)
+</details>
+
+<details>
+  <summary>Backend</summary>
+
+- [NodeJS](https://nodejs.org/)
+- [Bcrypt-nodejs](https://www.npmjs.com/package/bcrypt-nodejs)
+- [Body Parser](https://www.npmjs.com/package/body-parser)
+- [Consign](https://www.npmjs.com/package/consign)
+- [Postgres](https://www.postgresql.org)
+- [Cors](https://www.npmjs.com/package/cors)
+- [Express](https://expressjs.com/pt-br/)
+- [jwt-simple](https://www.npmjs.com/package/jwt-simple)
+- [Knex](http://knexjs.org)
+- [moment](https://momentjs.com)
+- [passport](http://www.passportjs.org/docs/)
+- [passport-jwt](https://www.npmjs.com/package/jwt-simple)
+- [nodemon](https://nodemon.io)
+</details>
+
 
 # Como usar :fire:
 ## Condição prévia 📌
