@@ -66,9 +66,26 @@ $ cd basic-react-native
 ```
 ## Instale as dependências :wrench:
 ```bash
-npm install
+cd backend && yarn install
+cd mobile && yarn install
 ```
+## Rode o servidor 🌐
+Entre na pasta
+```bash
+$ cd backend
+```
+
+Rode o servidor
+```bash
+$ yarn start
+```
+
 ## Run :iphone:
+Entre na pasta
+```bash
+$ cd mobile
+```
+
 Rodando a aplicação no iOS
 ```bash
 $ react-native run-ios --simulator="iPhone XS Max"
