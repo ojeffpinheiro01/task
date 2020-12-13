@@ -14,16 +14,19 @@ import commonStyles from '~/commonStyles'
 import AuthInput from '~/components/AuthInput'
 import { server, showError, showSucess } from '~/common'
 
+const initialState = {
+  stageNew: false,
+  name: '',
+  email: '',
+  pass: '',
+  confirmPassword: '',
+}
+
 export default class Auth extends Component {
 
   state = {
-    stageNew: false,
-    name: '',
-    email: '',
-    pass: '',
-    confirmPassword: '',
+    ...initialState
   }
-
   signin = async () => {
     try {
         const res = await axios.post(`${server}/signin`, {
@@ -39,23 +42,21 @@ export default class Auth extends Component {
         Alert.alert('Erro', 'Falha no Login!')
         // showError(err)
     }
-}
-signup = async () => {
-  try {
-      await axios.post(`${server}/signup`, {
-          name: this.state.name,
-          email: this.state.email,
-          pass: this.state.pass,
-          confirmPassword: this.state.confirmPassword
-      })
-
-      Alert.alert('Sucesso!', 'Usuário cadastrado :)')
-      this.setState({ stageNew: false })
-  } catch (err) {
-      showError(err)
   }
-}
-
+  signup = async () => {
+    try {
+        await axios.post(`${server}/signup`, {
+            name: this.state.name,
+            email: this.state.email,
+            pass: this.state.pass,
+            confirmPassword: this.state.confirmPassword
+        })
+        showSucess('Usuário cadastrado com sucesso')
+        this.setState({ ...initialState })
+    } catch (err) {
+      showError(err)
+    }
+  }
   signinOrSignup = () => {
     if (this.state.stageNew) {
         this.signup()
