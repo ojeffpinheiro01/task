@@ -5,7 +5,6 @@ import {
   TouchableOpacity,
   Text,
   StyleSheet,
-  Alert
  } from 'react-native'
  import axios from 'axios'
 
@@ -13,17 +12,21 @@ import log from '~/assets/imgs/login.jpg'
 import commonStyles from '~/commonStyles'
 import AuthInput from '~/components/AuthInput'
 import { server, showError, showSucess } from '~/common'
+import AsyncStorage from '@react-native-community/async-storage'
+
+const initialState = {
+  stageNew: false,
+  name: '',
+  email: '',
+  pass: '',
+  confirmPassword: '',
+}
 
 export default class Auth extends Component {
 
   state = {
-    stageNew: false,
-    name: '',
-    email: '',
-    pass: '',
-    confirmPassword: '',
+    ...initialState
   }
-
   signin = async () => {
     try {
         const res = await axios.post(`${server}/signin`, {
@@ -36,26 +39,23 @@ export default class Auth extends Component {
         AsyncStorage.setItem('userData', JSON.stringify(res.data))
         this.props.navigation.navigate('Home', res.data)
     } catch (err) {
-        Alert.alert('Erro', 'Falha no Login!')
-        // showError(err)
-    }
-}
-signup = async () => {
-  try {
-      await axios.post(`${server}/signup`, {
-          name: this.state.name,
-          email: this.state.email,
-          pass: this.state.pass,
-          confirmPassword: this.state.confirmPassword
-      })
-
-      Alert.alert('Sucesso!', 'Usuário cadastrado :)')
-      this.setState({ stageNew: false })
-  } catch (err) {
       showError(err)
+    }
   }
-}
-
+  signup = async () => {
+    try {
+        await axios.post(`${server}/signup`, {
+            name: this.state.name,
+            email: this.state.email,
+            pass: this.state.pass,
+            confirmPassword: this.state.confirmPassword
+        })
+        showSucess('Usuário cadastrado com sucesso')
+        this.setState({ ...initialState })
+    } catch (err) {
+      showError(err)
+    }
+  }
   signinOrSignup = () => {
     if (this.state.stageNew) {
         this.signup()
@@ -65,6 +65,17 @@ signup = async () => {
   }
 
   render(){
+    const validations = []
+    validations.push(this.state.email && this.state.email.includes('@'))
+    validations.push(this.state.pass && this.state.pass.length >= 6 )
+
+    if(this.state.stageNew){
+      validations.push(this.state.name && this.state.name.trim().length >= 2)
+      validations.push(this.state.pass === this.state.confirmPassword)
+    }
+
+    const validForm = validations.reduce((t, a) => t && a)
+
     return(
       <ImageBackground source={log} style={styles.background} >
         <Text style={styles.title} >Tasks</Text>
@@ -107,8 +118,9 @@ signup = async () => {
                 secureTextEntry={true}
               />
             }
-            <TouchableOpacity onPress={this.signinOrSignup}>
-              <View style={styles.button} >
+            <TouchableOpacity onPress={this.signinOrSignup}
+              disabled={!validForm}>
+              <View style={[styles.button, validForm ? {} : { backgroundColor: '#AAA' } ]} >
                 <Text style={styles.buttonText} >
                   {this.state.stageNew ? 'REGISTRAR' : 'ENTRAR' }
                 </Text>
