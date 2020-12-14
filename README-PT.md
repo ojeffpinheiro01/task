@@ -16,10 +16,6 @@ Este projeto tem como objetivo criar um clone da interface do Instagram utilizan
 
 # Tecnologias :computer:
 Este projeto foi desenvolvido com as seguintes tecnologias:
-
-<details>
-  <summary>Frontend Mobile</summary>
-
 - [React](https://pt-br.reactjs.org/docs/getting-started.html)
 - [React Native](https://reactnative.dev/docs/getting-started)
 - [NodeJS](https://nodejs.org/en/)
@@ -29,7 +25,6 @@ Este projeto foi desenvolvido com as seguintes tecnologias:
 - [Axios](https://www.npmjs.com/package/axios)
 - [Moment.js](https://momentjs.com)
 - [React Native Vector Icons](https://www.npmjs.com/package/react-native-vector-icons)
-</details>
 
 
 # Como usar :fire:
