@@ -5,7 +5,6 @@ import {
   TouchableOpacity,
   Text,
   StyleSheet,
-  Alert
  } from 'react-native'
  import axios from 'axios'
 
@@ -13,12 +12,13 @@ import log from '~/assets/imgs/login.jpg'
 import commonStyles from '~/commonStyles'
 import AuthInput from '~/components/AuthInput'
 import { server, showError, showSucess } from '~/common'
+import AsyncStorage from '@react-native-community/async-storage'
 
 const initialState = {
   stageNew: false,
   name: '',
-  email: 'jefe@mail.com',
-  pass: '123456',
+  email: '',
+  pass: '',
   confirmPassword: '',
 }
 
@@ -36,7 +36,7 @@ export default class Auth extends Component {
 
         axios.defaults.headers.common['Authorization']
             = `bearer ${res.data.token}`
-        // AsyncStorage.setItem('userData', JSON.stringify(res.data))
+        AsyncStorage.setItem('userData', JSON.stringify(res.data))
         this.props.navigation.navigate('Home', res.data)
     } catch (err) {
       showError(err)

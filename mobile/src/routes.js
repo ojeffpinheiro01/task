@@ -2,8 +2,27 @@ import React from 'react'
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createDrawerNavigator } from 'react-navigation-drawer'
 
+import Preload from '~/pages/Preload/index'
+import Menu from '~/pages/Menu'
 import Auth from '~/pages/Auth';
 import TaskList from '~/pages/TaskList';
+import commonStyles from './commonStyles'
+
+const menuConfig = {
+  initialRouteName: 'Today',
+  contentComponent: Menu,
+  contentOptions: {
+    labelStyle: {
+      fontFamily: commonStyles.fontFamily,
+      fontWeight: 'normal',
+      fontSize: 20
+    },
+    activeLabelStyle: {
+      color: '#080',
+      fontWeight: 'bold'
+    }
+  }
+}
 
 const menuRoutes = {
   Today: {
@@ -37,9 +56,13 @@ const menuRoutes = {
   }
 }
 
-const menuNavigator = createDrawerNavigator(menuRoutes)
+const menuNavigator = createDrawerNavigator(menuRoutes, menuConfig)
 
 const mainRoutes = {
+  Preload: {
+    name: 'Preload',
+    screen: Preload
+  },
   Auth: {
       name: 'Auth',
       screen: Auth
@@ -51,7 +74,7 @@ const mainRoutes = {
 }
 
 const mainNavigator = createSwitchNavigator(mainRoutes, {
-  initialRouteName: 'Auth'
+  initialRouteName: 'Preload'
 })
 
 export default createAppContainer(mainNavigator)
