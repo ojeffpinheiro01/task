@@ -12,7 +12,7 @@
 
 
 # Sobre o projeto :book:
-Este projeto visa a criação de uma aplicação To-Do, que permite uma lista de tarefas,
+Este projeto tem como objetivo criar um clone da interface do Instagram utilizando React Native.
 
 # Tecnologias :computer:
 Este projeto foi desenvolvido com as seguintes tecnologias:
@@ -31,24 +31,6 @@ Este projeto foi desenvolvido com as seguintes tecnologias:
 - [React Native Vector Icons](https://www.npmjs.com/package/react-native-vector-icons)
 </details>
 
-<details>
-  <summary>Backend</summary>
-
-- [NodeJS](https://nodejs.org/)
-- [Bcrypt-nodejs](https://www.npmjs.com/package/bcrypt-nodejs)
-- [Body Parser](https://www.npmjs.com/package/body-parser)
-- [Consign](https://www.npmjs.com/package/consign)
-- [Postgres](https://www.postgresql.org)
-- [Cors](https://www.npmjs.com/package/cors)
-- [Express](https://expressjs.com/pt-br/)
-- [jwt-simple](https://www.npmjs.com/package/jwt-simple)
-- [Knex](http://knexjs.org)
-- [moment](https://momentjs.com)
-- [passport](http://www.passportjs.org/docs/)
-- [passport-jwt](https://www.npmjs.com/package/jwt-simple)
-- [nodemon](https://nodemon.io)
-</details>
-
 
 # Como usar :fire:
 ## Condição prévia 📌
@@ -58,26 +40,15 @@ Você precisa ter instalado:
 
 ## Clone esse repositório :floppy_disk:
 ```bash
-$ git clone https://github.com/ojeffoinheiro/basic-react-native.git
+$ git clone https://github.com/ojeffoinheiro/jeffgram.git
 ```
 ## Entre na pasta :file_folder:
 ```bash
-$ cd basic-react-native
+$ cd jeffgram
 ```
 ## Instale as dependências :wrench:
 ```bash
-cd backend && yarn install
 cd mobile && yarn install
-```
-## Rode o servidor 🌐
-Entre na pasta
-```bash
-$ cd backend
-```
-
-Rode o servidor
-```bash
-$ yarn start
 ```
 
 ## Run :iphone:
