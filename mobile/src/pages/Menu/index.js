@@ -9,11 +9,18 @@ import {
 import { DrawerItems } from 'react-navigation-drawer'
 import axios from 'axios'
 import Icon from 'react-native-vector-icons/FontAwesome'
-import commonStyles from '~/commonStyles'
 import { Gravatar } from 'react-native-gravatar'
 import AsyncStorage from '@react-native-community/async-storage'
 
+import commonStyles from '~/commonStyles'
+
 export default props => {
+  const logout = () => {
+    delete axios.defaults.headers.common['Authorization']
+        AsyncStorage.removeItem('userData')
+        props.navigation.navigate('Preload')
+  }
+
     return (
         <ScrollView>
             <View style={styles.header}>
@@ -32,7 +39,7 @@ export default props => {
                             {props.navigation.getParam('email')}
                         </Text>
                     </View>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={logout}>
                         <View style={styles.logoutIcon}>
                             <Icon name="power-off" size={30}
                                 color='#800' />
