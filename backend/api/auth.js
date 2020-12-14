@@ -14,8 +14,8 @@ module.exports = app => {
 
         if (user) {
             bcrypt.compare(req.body.pass, user.pass, (err, isMatch) => {
-                if (err) {
-                    return res.status(401).send()
+                if (err || !isMatch) {
+                    return res.status(401).send('Senha informada é inválida')
                 }
 
                 const payload = { id: user.id }
