@@ -16,15 +16,13 @@ Este projeto tem como objetivo criar um clone da interface do Instagram utilizan
 
 # Tecnologias :computer:
 Este projeto foi desenvolvido com as seguintes tecnologias:
-- [React](https://pt-br.reactjs.org/docs/getting-started.html)
-- [React Native](https://reactnative.dev/docs/getting-started)
-- [NodeJS](https://nodejs.org/en/)
-- [React Navigation](https://reactnavigation.org/docs/getting-started)
-- [React Native Async Storage](https://reactnative.dev/docs/asyncstorage)
-- [React Native DateTimePicker](https://github.com/react-native-datetimepicker/datetimepicker)
-- [Axios](https://www.npmjs.com/package/axios)
-- [Moment.js](https://momentjs.com)
-- [React Native Vector Icons](https://www.npmjs.com/package/react-native-vector-icons)
+- [React Native](https://reactnative.dev)
+- [axios](https://yarnpkg.com/package/axios)
+- [React Native Gesture Handler](https://yarnpkg.com/package/react-native-gesture-handler)
+- [React Native Reanimated](https://yarnpkg.com/package/react-native-reanimated)
+- [React Native Vector Icons](https://yarnpkg.com/package/react-native-vector-icons)
+- [React Navigation](https://reactnavigation.org)
+- [Styled Components](https://styled-components.com)
 
 
 # Como usar :fire:
